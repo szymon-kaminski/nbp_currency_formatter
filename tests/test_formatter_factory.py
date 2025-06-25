@@ -25,3 +25,10 @@ def test_get_formatter_unknown():
     with pytest.raises(ValueError) as excinfo:
         get_formatter("xml")
     assert "Unknown format type" in str(excinfo.value)
+
+
+def test_invalid_formatter_type():
+    with pytest.raises(ValueError, match="Unknown format type"):
+        get_formatter("html")
+
+
